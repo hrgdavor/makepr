@@ -1,11 +1,11 @@
 {
   "name": "makepr",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Quickly open url for PR or something else using url template in package.json.",
   "main": "bin/index.js",
   "scripts": {},
-  "keywords": [],
+  "keywords": ["gitea","PR","pull-request"],
   "author": "Davor Hrg",
   "license": "MIT",
   "bin": {
@@ -15,5 +15,19 @@
     "chalk": "^4.1.2",
     "find-up": "^6.2.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrgdavor/makepr.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/hrgdavor/makepr/blob/main/LICENSE.md"
+    }
+  ],
+  "bugs": {
+    "url": "https://hrgdavor/makepr/issues"
+  },
+  "homepage": "https://github.com/hrgdavor/makepr/blob/main/README.md",
   "devDependencies": {}
 }
