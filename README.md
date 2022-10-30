@@ -32,12 +32,13 @@ makepr
 Find path to the command after isntalling
 
 - win: `where makepr` in cmd (%homepath%\AppData\Roaming\npm\makepr.cmd)
+  resolve folder by pasting `%homepath%\AppData\Roaming\npm` in file explorer
 - mac: `which makepr` in shell
 - linux: `whereis makepr` in shell (/usr/bin/makepr)
 
-set the location in eclipse and set working directory to variable `${container_loc}`
+set the location in eclipse and set working directory to variable `${project_loc}`
 
-![](assets/ExternalToolsConfigurations.png)
+![image](https://user-images.githubusercontent.com/2480762/198891870-c277ba2d-f581-416b-bf0f-f03a06accca5.png)
 
 
 
