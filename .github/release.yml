@@ -1,0 +1,65 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+# 1. ADD PERMISSIONS AT THE TOP LEVEL
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        target:
+          - x86_64-windows
+          - aarch64-windows
+          - x86_64-linux
+          - aarch64-linux
+          - x86_64-macos
+          - aarch64-macos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mlugg/setup-zig@v2
+        with:
+          version: 0.16.0
+      - name: Build
+        run: zig build -Dtarget=${{ matrix.target }} -Doptimize=ReleaseSafe
+      - name: Package
+        run: |
+          mkdir -p dist
+          if [[ "${{ matrix.target }}" == *"windows"* ]]; then
+            cp zig-out/bin/makepr.exe makepr.exe
+            zip makepr-${{ matrix.target }}.zip makepr.exe
+            mv makepr-${{ matrix.target }}.zip dist/
+          else
+            cp zig-out/bin/makepr makepr
+            tar -czf makepr-${{ matrix.target }}.tar.gz makepr
+            mv makepr-${{ matrix.target }}.tar.gz dist/
+          fi
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: makepr-${{ matrix.target }}
+          path: dist/*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    # (Optional) You can also put permissions here specifically
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true # 2. THIS FLATTENS THE FOLDER STRUCTURE
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*   # 3. NOW THIS WILL FIND ALL FILES
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
