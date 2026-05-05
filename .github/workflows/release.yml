@@ -5,7 +5,7 @@ on:
     tags:
       - 'v*'
 
-# 1. ADD PERMISSIONS AT THE TOP LEVEL
+# 1. ADD PERMISSIONS AT THE TOP LEVEL 
 permissions:
   contents: write
 
