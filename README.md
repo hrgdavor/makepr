@@ -26,7 +26,7 @@ Example for gitea/forgejo
 }
 ```
 
-github example url: `https://github.com/hrgdavor/makepr/compare/main...test`
+github example url: `https://github.com/hrgdavor/makepr/compare/main...{BRANCH}`
 
 
 Run the command anywhere inside your project
