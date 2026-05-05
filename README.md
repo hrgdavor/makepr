@@ -16,13 +16,18 @@ Original version using Nodejs. install the tool via npm.
 npm i -g makepr
 ```
 
-Configure your pacakge.json. Add a `makepr` section that defines url to call based on current branch
+Configure your pacakge.json. Add a `makepr` section that defines url to call based on current branch.
+
+Example for gitea/forgejo
 
 ```json
 "makepr":{
-  "url":"https://your-git-server.com/something/{BRANCH_NAME}"
+  "url":"https://your-git-server.com/organization/repo/compare/main...{BRANCH}"
 }
 ```
+
+github example url: `https://github.com/hrgdavor/makepr/compare/main...test`
+
 
 Run the command anywhere inside your project
 ```
