@@ -1,11 +1,15 @@
 {
   "name": "makepr",
   "type": "module",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Quickly open url for PR or something else using url template in package.json.",
   "main": "bin/index.js",
   "scripts": {},
-  "keywords": ["gitea","PR","pull-request"],
+  "keywords": [
+    "gitea",
+    "PR",
+    "pull-request"
+  ],
   "author": "Davor Hrg",
   "license": "MIT",
   "bin": {

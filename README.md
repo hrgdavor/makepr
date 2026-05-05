@@ -8,7 +8,9 @@ This tool will lookup current branch using git command `git branch --show-curren
 
 # Usage
 
-install the tool
+**NEW version** is available as binary for multiple platforms, compiled with ZIG. https://github.com/hrgdavor/makepr/releases .
+
+Original version using Nodejs. install the tool via npm.
 
 ```
 npm i -g makepr
